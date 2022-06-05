@@ -1,18 +1,25 @@
 <script>
-    import { applyPosition, draggable } from '@typhonjs-fvtt/runtime/svelte/action';
-    import { Position } from '@typhonjs-fvtt/runtime/svelte/application';
-    import { getContext } from 'svelte';
+    import { getContext }   from 'svelte';
+    import { scale }        from 'svelte/transition';
 
-    import Image from "../components/Image.svelte";
-    import TilingBackground from "../components/TilingBackground.svelte";
-    import Text from "../components/Text.svelte";
-    import PipBar from "../components/PipBar.svelte";
+    import {
+       applyPosition,
+       draggable }          from '@typhonjs-fvtt/runtime/svelte/action';
 
-    const { application } = getContext('external');
+    import { Position }     from '@typhonjs-fvtt/runtime/svelte/application';
+
+    import {
+       Image,
+       PipBar,
+       Text,
+       TilingBackground } from '../components';
+
     export let elementRoot;
     export let actor;
 
-    function closeApplication(){
+    const { application } = getContext('external');
+
+    function closeApplication() {
         application.close();
     }
 
@@ -92,13 +99,19 @@
 
 <svelte:options accessors={true}/>
 
-<div class="root" bind:this={elementRoot} use:applyPosition={position} use:draggable={{position}}>
+<div class="root"
+     bind:this={elementRoot}
+     use:applyPosition={position}
+     use:draggable={{position}}
+     transition:scale>
     <div class="container">
         {#each components as component, index (index)}
             <svelte:component this={component.class} attributes={component.attributes} position={component?.position} />
         {/each}
     </div>
-    <div class="close-button" on:click|stopPropagation={closeApplication}>
+    <div class="close-button"
+         on:click|stopPropagation={closeApplication}
+         on:pointerdown|preventDefault|stopPropagation={()=>null}> <!-- Since whole app is draggable must prevent pointerdown event -->
         <i class="fas fa-times-circle"></i>
     </div>
 </div>
