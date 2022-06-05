@@ -12,7 +12,7 @@
 <style lang="scss">
 
   div {
-    position: absolute;
+    position: fixed;
   }
 
 </style>

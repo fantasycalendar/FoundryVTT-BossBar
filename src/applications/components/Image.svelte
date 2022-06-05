@@ -5,8 +5,6 @@
     export let attributes;
     export let position;
 
-    console.log(attributes)
-
 </script>
 
 <img src="{attributes.src}" use:applyPosition={position} />
@@ -14,7 +12,7 @@
 <style lang="scss">
 
   img {
-    position: absolute;
+    position: fixed;
     border: 0;
   }
 

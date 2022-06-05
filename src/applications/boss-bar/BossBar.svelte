@@ -19,10 +19,6 @@
 
     const { application } = getContext('external');
 
-    function closeApplication() {
-        application.close();
-    }
-
     const position = application.position;
 
     const components = [
@@ -110,8 +106,8 @@
         {/each}
     </div>
     <div class="close-button"
-         on:click|stopPropagation={closeApplication}
-         on:pointerdown|preventDefault|stopPropagation={()=>null}> <!-- Since whole app is draggable must prevent pointerdown event -->
+         on:click|stopPropagation={() => { application.close() }}
+         on:pointerdown|preventDefault|stopPropagation={()=>null}>
         <i class="fas fa-times-circle"></i>
     </div>
 </div>
@@ -123,8 +119,12 @@
 
     .container {
       position: relative;
-      border-radius: 9999px;
-      box-shadow: 0 10px 20px 5px rgba(0,0,0,0.5);
+    }
+
+    &:hover .close-button {
+      transition: opacity 0.15s;
+      -webkit-transition: opacity 0.15s;
+      opacity: 0.6;
     }
 
     .close-button {
@@ -136,12 +136,12 @@
       font-size:1rem;
       cursor: pointer;
       z-index:20;
-    }
 
-    &:hover .close-button {
-      transition: opacity 0.15s;
-      -webkit-transition: opacity 0.15s;
-      opacity: 1;
+      &:hover{
+        opacity: 1.0;
+        transition: opacity 0.15s;
+        -webkit-transition: opacity 0.15s;
+      }
     }
   }
 
