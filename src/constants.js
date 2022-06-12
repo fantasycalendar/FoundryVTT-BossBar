@@ -5,4 +5,11 @@ const CONSTANTS = {
 
 CONSTANTS.FLAGS = `flags.${CONSTANTS.MODULE_NAME}.${CONSTANTS.FLAG_NAME}`;
 
-export default CONSTANTS;
+const base = CONSTANTS.MODULE_NAME + "."
+const HOOKS = {
+    CLOSE: base + "close",
+    CLOSE_ALL: base + "closeAll",
+    SHOW: base + "show",
+}
+
+export { CONSTANTS, HOOKS };

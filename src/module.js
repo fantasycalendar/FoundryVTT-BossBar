@@ -1,5 +1,6 @@
-import registerHooks from "./hooks.js";
+import API from "./api.js";
 
 Hooks.on('init', () => {
-    registerHooks();
+    game.bossbar = API;
+    API.initialize();
 });

@@ -1,22 +1,26 @@
 <script>
 
-    import { applyPosition } from '@typhonjs-fvtt/runtime/svelte/action';
+    import { applyStyles } from "@typhonjs-fvtt/runtime/svelte/action";
+    export let data;
 
-    export let position;
-    export let attributes;
-    export let tiling = "repeat-x";
+    let styles;
+
+    $: {
+        styles = {
+            "background-image": `url(${data.src})`,
+            "background-repeat": "repeat-x",
+            ...data.styles
+        }
+    }
 
 </script>
 
-<div
-    style="background-image: url({attributes.src}); background-repeat: {tiling};"
-    use:applyPosition={position}
-></div>
+<div use:applyStyles={styles}></div>
 
 <style lang="scss">
 
   div {
-    position: absolute;
+    position: fixed;
   }
 
 </style>

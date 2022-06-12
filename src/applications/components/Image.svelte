@@ -1,19 +1,13 @@
 <script>
-
-    import { applyPosition } from '@typhonjs-fvtt/runtime/svelte/action';
-
-    export let attributes;
-    export let position;
-
+    import { applyStyles } from "@typhonjs-fvtt/runtime/svelte/action";
+    export let data;
 </script>
 
-<img src="{attributes.src}" use:applyPosition={position} />
+<img src="{data.src}" use:applyStyles={data.styles}/>
 
 <style lang="scss">
-
   img {
     position: fixed;
     border: 0;
   }
-
 </style>

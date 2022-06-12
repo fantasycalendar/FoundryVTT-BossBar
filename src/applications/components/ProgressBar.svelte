@@ -3,16 +3,16 @@
     import { tweened } from "svelte/motion";
     import { cubicOut } from "svelte/easing";
 
-    export let attributes;
+    export let data;
     export let progress;
 
     export let progressBar = tweened(0, {
-        duration: attributes.ease ?? 200,
+        duration: data.ease ?? 200,
         easing: cubicOut,
     });
 
     export let progressBarGhost = tweened(0, {
-        duration: attributes.ghostEase ?? 1500,
+        duration: data.ghostEase ?? 1500,
         easing: cubicOut,
     });
 
@@ -32,11 +32,11 @@
 </script>
 
 <div class="progress-bar" style="--ghost-color:{styles.ghostColor};--color:{styles.color}">
-    {#if !attributes.hideGhost}
+    {#if !data.hideGhost}
         <div class="progress-ghost" style="width:{$progressBarGhost*100}%;"></div>
     {/if}
     <div class="progress" style="width:{$progressBar*100}%;"></div>
-    {#if !attributes.hideOverlay}
+    {#if !data.hideOverlay}
         <div class="overlay"></div>
     {/if}
 </div>

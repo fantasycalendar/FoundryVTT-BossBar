@@ -25,6 +25,7 @@
             "path": "/languages/en.json"
         }
     ],
+    "socket": true,
     "minimumCoreVersion": "9",
     "compatibleCoreVersion": "9",
     "url": "https://github.com/fantasycalendar/FoundryVTT-RestRecovery",

@@ -1,3 +1,4 @@
+import { HOOKS } from "./constants.js";
 import BossBar from "./applications/boss-bar/boss-bar-app.js";
 
 export default function registerHooks() {
@@ -5,7 +6,7 @@ export default function registerHooks() {
     /**
      * Closes all boss bars for a specific actor.
      */
-    Hooks.on("BossBar.Close", async (options) => {
+    Hooks.on(HOOKS.CLOSE, async (options) => {
         const actor = await getActor(options, 'close');
 
         const apps = Object.values(ui.windows).filter(app => app instanceof BossBar);
@@ -20,7 +21,7 @@ export default function registerHooks() {
     /**
      * Closes all boss bars.
      */
-    Hooks.on("BossBar.Close.All", async () => {
+    Hooks.on(HOOKS.CLOSE_ALL, async () => {
         const apps = Object.values(ui.windows).filter(app => app instanceof BossBar);
 
         for (const app of apps) {
@@ -31,7 +32,7 @@ export default function registerHooks() {
     /**
      * Shows a boss bar for a given actor - add `force: true` to show multiple boss bars for same actor.
      */
-    Hooks.on("BossBar.Show", async (options) => {
+    Hooks.on(HOOKS.SHOW, async (options) => {
         const actor = await getActor(options, 'show');
 
         const force = typeof options.force === 'boolean' ? options.force : false;
@@ -61,7 +62,9 @@ export default function registerHooks() {
 
         if (typeof options.uuid === 'string') {
             try {
-                actor = await fromUuid(options.uuid);
+                const target = await fromUuid(options.uuid);
+                // In case a token was given, get the actor from the token.
+                actor = target?.actor ?? target;
             } catch (err) { /**/
             } // Swallow error as error message is printed below.
             lookupType = 'uuid'

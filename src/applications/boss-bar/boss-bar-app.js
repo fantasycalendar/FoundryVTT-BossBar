@@ -1,5 +1,5 @@
 import { SvelteApplication } from '@typhonjs-fvtt/runtime/svelte/application';
-import BossBar from "./BossBar.svelte";
+import BossBarShell from "./BossBarShell.svelte";
 
 export default class BossBarApp extends SvelteApplication {
 
@@ -11,14 +11,14 @@ export default class BossBarApp extends SvelteApplication {
     static get defaultOptions() {
         return foundry.utils.mergeObject(super.defaultOptions, {
             closeOnSubmit: false,
-            width: 900,
+            width: 500,
             height: "auto",
             defaultCloseAnimation: false, // Allow Svelte outro transition
             transformOrigin: 'center',    // Rotation / scale from center
             positionOrtho: false,         // Required for intro transition to take.
 
             svelte: {
-                class: BossBar,
+                class: BossBarShell,
                 target: document.body,
                 intro: true,
                 props: function() {       // You can use a function with `this` as the application.
