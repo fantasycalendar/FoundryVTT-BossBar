@@ -9,7 +9,7 @@ export default function registerHooks() {
     Hooks.on(HOOKS.CLOSE, async (options) => {
         const actor = await getActor(options, 'close');
 
-        const apps = Object.values(ui.windows).filter(app => app instanceof BossBar);
+        const app = Object.values(ui.windows).filter(app => app instanceof BossBar);
 
         for (const app of apps) {
             if (app.actor === actor) {
@@ -38,6 +38,21 @@ export default function registerHooks() {
         const force = typeof options.force === 'boolean' ? options.force : false;
 
         BossBar.show(actor, force);
+    });
+
+    /**
+     * Updates the boss bar for a given actor, if one can be found.
+     */
+    Hooks.on(HOOKS.UPDATE, async (options) => {
+        const actor = await getActor(options, 'show');
+
+        const apps = Object.values(ui.windows).filter(app => app instanceof BossBar);
+
+        for (const app of apps) {
+            if (app.actor === actor && (!options.name || options.name === app.id)) {
+                app.update(options);
+            }
+        }
     });
 
     /**

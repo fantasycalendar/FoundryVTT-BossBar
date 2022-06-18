@@ -72,4 +72,8 @@ export default class BossBarApp extends SvelteApplication {
             left: existingLeft
         }).render(true);
     }
+
+    update(options){
+        console.log(options);
+    }
 }

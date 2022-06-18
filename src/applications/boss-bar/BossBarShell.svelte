@@ -13,8 +13,6 @@
        TilingBackground,
        AttributeText }   from '../components';
 
-    import ConfigApp from "../config/config-app.js";
-
     export let elementRoot;
     export let actor;
 
@@ -122,6 +120,9 @@
         loadComponents();
     }
 
+    console.log(application.options);
+    application.options.positionable = false;
+
 </script>
 
 <svelte:options accessors={true}/>
@@ -143,7 +144,7 @@
             <i class="fas fa-times-circle"></i>
         </div>
         <div class="ui-button"
-             on:click|stopPropagation={() => { ConfigApp.show(application) }}
+             on:click|stopPropagation={() => { }}
              on:pointerdown|preventDefault|stopPropagation={()=>null}>
             <i class="fas fa-cog"></i>
         </div>

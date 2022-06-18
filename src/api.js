@@ -11,6 +11,9 @@ export default class API {
     }
 
     static getActorUuid(target){
+        if(!target){
+            throw new Error("A target must be given.")
+        }
         if(target instanceof Actor){
             return target.uuid;
         }
@@ -32,19 +35,28 @@ export default class API {
         }).filter(Boolean).filter(user => user.active).map(user => user.id);
     }
 
+    static _executeSocketAction(hook, users, ...args){
+        return socket.executeForUsers("call_hook", this.getUsers(users), hook, ...args);
+    }
+
     static showBar(target, { users = null, options = {} }={}){
         if(!game.user.isGM) return;
-        return socket.executeForUsers("call_hook", this.getUsers(users), HOOKS.SHOW, { uuid: this.getActorUuid(target), ...options });
+        return this._executeSocketAction(HOOKS.SHOW, users, { uuid: this.getActorUuid(target), ...options });
+    }
+
+    static updateBar(target, { options={} }={}){
+        if(!game.user.isGM) return;
+        return this._executeSocketAction(HOOKS.UPDATE, null, { uuid: this.getActorUuid(target), ...options });
     }
 
     static closeBar(target, { users = null, options = {} }={}){
         if(!game.user.isGM) return;
-        return socket.executeForUsers("call_hook", this.getUsers(users), HOOKS.CLOSE, { uuid: this.getActorUuid(target), ...options });
+        return this._executeSocketAction(HOOKS.CLOSE, users, { uuid: this.getActorUuid(target), ...options });
     }
 
     static closeAllBars({ users = null, options = {} }={}){
         if(!game.user.isGM) return;
-        return socket.executeForUsers("call_hook", this.getUsers(users), HOOKS.CLOSE_ALL, options);
+        return this._executeSocketAction(HOOKS.CLOSE_ALL, users, options);
     }
 
 }

@@ -10,6 +10,7 @@ const HOOKS = {
     CLOSE: base + "close",
     CLOSE_ALL: base + "closeAll",
     SHOW: base + "show",
+    UPDATE: base + "update"
 }
 
 export { CONSTANTS, HOOKS };
