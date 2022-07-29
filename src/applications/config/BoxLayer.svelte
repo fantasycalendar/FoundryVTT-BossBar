@@ -3,12 +3,11 @@
 
    import { resizeObserver }           from '@typhonjs-fvtt/runtime/svelte/action';
    import { TJSApplicationShell }      from '@typhonjs-fvtt/runtime/svelte/component/core';
-   import { TJSPositionControlLayer }  from '@typhonjs-fvtt/svelte-standard/component'
 
    import { boxStore, validator }      from './boxStore.js';
 
    import Box                          from './boxes/Box.svelte';
-   import BoxHeader                    from './BoxHeader.svelte';
+   import SideBar from "./SideBar.svelte";
 
    export let elementRoot;
 
@@ -38,13 +37,11 @@
 <svelte:options accessors={true}/>
 
 <TJSApplicationShell bind:elementRoot stylesContent={{ padding: 0 }}>
-   <BoxHeader {controls} />
+   <SideBar {controls} />
    <main use:resizeObserver={setDimension}>
-      <TJSPositionControlLayer {boundingRect} bind:controls components={$boxStore}>
       {#each $boxStore as box (box.id)}
          <svelte:component this={Box} {box} />
       {/each}
-      </TJSPositionControlLayer>
    </main>
 </TJSApplicationShell>
 

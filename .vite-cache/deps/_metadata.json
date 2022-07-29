@@ -1,0 +1,98 @@
+{
+  "hash": "fb96460a",
+  "browserHash": "f59bb3f4",
+  "optimized": {
+    "svelte/animate": {
+      "src": "../../node_modules/svelte/animate/index.mjs",
+      "file": "svelte_animate.js",
+      "fileHash": "68cc9615",
+      "needsInterop": false
+    },
+    "svelte/easing": {
+      "src": "../../node_modules/svelte/easing/index.mjs",
+      "file": "svelte_easing.js",
+      "fileHash": "24efc937",
+      "needsInterop": false
+    },
+    "svelte/internal": {
+      "src": "../../node_modules/svelte/internal/index.mjs",
+      "file": "svelte_internal.js",
+      "fileHash": "5c76f714",
+      "needsInterop": false
+    },
+    "svelte/motion": {
+      "src": "../../node_modules/svelte/motion/index.mjs",
+      "file": "svelte_motion.js",
+      "fileHash": "923dbb05",
+      "needsInterop": false
+    },
+    "svelte/store": {
+      "src": "../../node_modules/svelte/store/index.mjs",
+      "file": "svelte_store.js",
+      "fileHash": "b565d57b",
+      "needsInterop": false
+    },
+    "svelte/transition": {
+      "src": "../../node_modules/svelte/transition/index.mjs",
+      "file": "svelte_transition.js",
+      "fileHash": "f4707229",
+      "needsInterop": false
+    },
+    "svelte": {
+      "src": "../../node_modules/svelte/index.mjs",
+      "file": "svelte.js",
+      "fileHash": "4c85e9ee",
+      "needsInterop": false
+    },
+    "@typhonjs-fvtt/runtime > autoprefixer": {
+      "src": "../../node_modules/autoprefixer/lib/autoprefixer.js",
+      "file": "@typhonjs-fvtt_runtime___autoprefixer.js",
+      "fileHash": "596263fa",
+      "needsInterop": true
+    },
+    "@typhonjs-fvtt/runtime > cssnano": {
+      "src": "../../node_modules/cssnano/src/index.js",
+      "file": "@typhonjs-fvtt_runtime___cssnano.js",
+      "fileHash": "3b896fc7",
+      "needsInterop": true
+    },
+    "@typhonjs-fvtt/runtime > rollup-plugin-postcss": {
+      "src": "../../node_modules/rollup-plugin-postcss/dist/index.js",
+      "file": "@typhonjs-fvtt_runtime___rollup-plugin-postcss.js",
+      "fileHash": "668d3e6e",
+      "needsInterop": true
+    },
+    "@typhonjs-fvtt/runtime > rollup-plugin-svelte": {
+      "src": "../../node_modules/rollup-plugin-svelte/index.js",
+      "file": "@typhonjs-fvtt_runtime___rollup-plugin-svelte.js",
+      "fileHash": "fb68b9c1",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-G5DYNEYO": {
+      "file": "chunk-G5DYNEYO.js"
+    },
+    "chunk-LUI2RTQM": {
+      "file": "chunk-LUI2RTQM.js"
+    },
+    "chunk-VZIRUC4I": {
+      "file": "chunk-VZIRUC4I.js"
+    },
+    "chunk-4PEWM6UF": {
+      "file": "chunk-4PEWM6UF.js"
+    },
+    "chunk-KQZHA2PN": {
+      "file": "chunk-KQZHA2PN.js"
+    },
+    "chunk-3THRRXLU": {
+      "file": "chunk-3THRRXLU.js"
+    },
+    "chunk-42OO5JCR": {
+      "file": "chunk-42OO5JCR.js"
+    },
+    "chunk-S5KM4IGW": {
+      "file": "chunk-S5KM4IGW.js"
+    }
+  }
+}
