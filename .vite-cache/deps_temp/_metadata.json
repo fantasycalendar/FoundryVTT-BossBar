@@ -1,0 +1,59 @@
+{
+  "hash": "8c1c3777",
+  "browserHash": "983a5031",
+  "optimized": {
+    "svelte/animate": {
+      "src": "../../node_modules/svelte/animate/index.mjs",
+      "file": "svelte_animate.js",
+      "fileHash": "8e95e36c",
+      "needsInterop": false
+    },
+    "svelte/easing": {
+      "src": "../../node_modules/svelte/easing/index.mjs",
+      "file": "svelte_easing.js",
+      "fileHash": "9fd089bc",
+      "needsInterop": false
+    },
+    "svelte/internal": {
+      "src": "../../node_modules/svelte/internal/index.mjs",
+      "file": "svelte_internal.js",
+      "fileHash": "5ceb41bd",
+      "needsInterop": false
+    },
+    "svelte/motion": {
+      "src": "../../node_modules/svelte/motion/index.mjs",
+      "file": "svelte_motion.js",
+      "fileHash": "4e285d7f",
+      "needsInterop": false
+    },
+    "svelte/store": {
+      "src": "../../node_modules/svelte/store/index.mjs",
+      "file": "svelte_store.js",
+      "fileHash": "34a0dfcb",
+      "needsInterop": false
+    },
+    "svelte/transition": {
+      "src": "../../node_modules/svelte/transition/index.mjs",
+      "file": "svelte_transition.js",
+      "fileHash": "c1125e9c",
+      "needsInterop": false
+    },
+    "svelte": {
+      "src": "../../node_modules/svelte/index.mjs",
+      "file": "svelte.js",
+      "fileHash": "70450598",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-NFFNPMUS": {
+      "file": "chunk-NFFNPMUS.js"
+    },
+    "chunk-AFTQYMJX": {
+      "file": "chunk-AFTQYMJX.js"
+    },
+    "chunk-IN7DAOGI": {
+      "file": "chunk-IN7DAOGI.js"
+    }
+  }
+}
